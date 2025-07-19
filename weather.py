@@ -13,6 +13,7 @@ def format_temperature(temp):
     Returns:
         A string contain the temperature and "degrees Celcius."
     """
+    temp=input("What's the temperature in Celsius today?: ")
     return f"{temp}{DEGREE_SYMBOL}"
 
 
@@ -24,7 +25,21 @@ def convert_date(iso_string):
     Returns:
         A date formatted like: Weekday Date Month Year e.g. Tuesday 06 July 2021
     """
-    pass
+    #1.input ISO date string --> date =  "2021-07-05T07:00:00+08:00"
+    #2. convert iso date to date, time object
+    #print (type(iso_string))
+    readable_date=datetime.fromisoformat(iso_string)
+    #print(type(readable_date))
+    #3. convert back to string --> needs to be formatted as "weekday date month, year"
+    formatted_date=readable_date.strftime("%A, %d, %B, %Y")
+    print(formatted_date)
+    return(formatted_date)
+    #sio_string = datetime.datetime.now()
+    #return(readable_date)
+convert_date("2021-07-05T07:00:00+08:00")
+print(convert_date)
+
+#expected_result = "Monday 05 July 2021"
 
 
 def convert_f_to_c(temp_in_fahrenheit):
